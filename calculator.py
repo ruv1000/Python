@@ -1,5 +1,8 @@
 # Первые шаги
 #Простейший калькулятор 
+from colorama import init
+from colorama import Fore, Back, Style
+init()
 
 what=input("Действие, которое будем выполнять(+, -, /, *): ")
 if what == "+":
@@ -29,6 +32,7 @@ elif what == "/":
 			c = a // b 
 			print("Результат деления: " + str(c) + " с остатком: " + str(r))
 	else:
+		print(Back.RED)
 		print("Деление на ноль, ответа нет!")
 else:
 	print("Данного арифметического знака не существует!")
