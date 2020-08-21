@@ -5,9 +5,10 @@ from pyowm import OWM
 owm = OWM('75dfc1b48b085784afb332045aa1341f')
 
 place = input("Enter your city: ")
+city = place[0].upper() + place[1:] # Делаем первую букву введенного города заглавной
 mgr = owm.weather_manager()
-observation = mgr.weather_at_place(place)
+observation = mgr.weather_at_place(city)
 w = observation.weather
 
-print("It's " + w.status + " in " + place + " now." ) # сделать проверку на регистр
+print("It's " + str.lower(w.status) + " in " + city + " now." )
 print("Average temperature " + str(round(w.temperature('celsius')["temp"]))+ ", feels like " + str(round(w.temperature('celsius')["feels_like"])))
