@@ -2,7 +2,7 @@
 
 from pyowm import OWM
 
-owm = OWM('75dfc1b48b085784afb332045aa1341f')
+owm = OWM('your-API-key')
 
 place = input("Enter your city: ")
 city = place[0].upper() + place[1:] # Делаем первую букву введенного города заглавной

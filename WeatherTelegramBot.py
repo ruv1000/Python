@@ -2,8 +2,8 @@
 import telebot
 from pyowm import OWM
 
-bot = telebot.TeleBot("1286914827:AAHGybbSTiqSwjPsNWOfXnA_BO56_iDwv_M")
-owm = OWM('75dfc1b48b085784afb332045aa1341f')
+bot = telebot.TeleBot("your-telegram-token")
+owm = OWM('your-API-key')
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
