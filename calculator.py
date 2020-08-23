@@ -1,42 +1,70 @@
 # First steps
 # Simply calculator 
 
+from colorama import Back
 from colorama import init
-from colorama import Fore, Back, Style
+
 init()
 
-what=input("What arithmetic operations we will perform(+, -, /, *): ")
 
-if what == "+":
-	a=float(input("First number: "))
-	b=float(input("Second number: "))
-	c = a + b
-	print("Result: " + str(c))
-elif what == "-":
-	a=float(input("First number: "))
-	b=float(input("Second number: "))
-	c = a - b
-	print("Result: " + str(c))
-elif what == "*":
-	a=float(input("First number: "))
-	b=float(input("Second number: "))
-	c = a * b
-	print("Result: " + str(c))
-elif what == "/":
-	a=float(input("First number: "))
-	b=float(input("Second number: "))
-	if b != 0:
-		r = a % b 
-		if r == 0:
-			c = a / b
-			print("Result: " + str(c))
-		else:
-			c = a // b 
-			print("Result: " + str(c) + " remainder of the division: " + str(r))
-	else:
-		print(Back.RED)
-		print("Wrong! Division by zero, no answer!")
-else:
-	print(Back.RED)
-	print("This arithmetic sign does not exist!")
+def first_number():
+    x1 = input("Enter first number: ")
+    condition1 = x1.isdigit()
+    condition2 = x1 != "+" or x1 != "-" or x1 != "*" or x1 != "/"
+    while not condition1 and condition2:
+        x1 = input("Please, enter a number: ")
+        condition1 = x1.isdigit()
+        condition2 = x1 != "+" or x1 != "-" or x1 != "*" or x1 != "/"
+    return float(x1)
+
+
+def second_number():
+    x2 = input("Enter second number: ")
+    condition1 = x2.isdigit()
+    condition2 = x2 != "+" or x2 != "-" or x2 != "*" or x2 != "/"
+    while not condition1 and condition2:
+        x1 = input("Please, enter a number: ")
+        condition1 = x2.isdigit()
+        condition2 = x2 != "+" or x2 != "-" or x2 != "*" or x2 != "/"
+    return float(x2)
+
+
+function = input("What arithmetic operations we will perform(+, -, /, *): ")
+i = function == "+" or function == "-" or function == "*" or function == "/"
+
+while not i:
+    print(Back.RED, "Wrong! Division by zero, no answer!")
+    print(Back.RESET)
+    function = input("Please, enter the correct arithmetic sign(+, -, /, *): ")
+    i = function == "+" or function == "-" or function == "*" or function == "/"
+
+if function == "+":
+    c = first_number() + second_number()
+    print("Result: " + str(c))
+
+elif function == "-":
+    c = first_number() - second_number()
+    print("Result: " + str(c))
+
+elif function == "*":
+    c = first_number() * second_number()
+    print("Result: " + str(c))
+
+elif function == "/":
+    a = first_number()
+    b = second_number()
+
+    while b == 0:
+        print(Back.RED, "Wrong! Division by zero, no answer!")
+        print(Back.RESET)
+        b = float(input("Enter a divisor other than zero: "))
+
+    r = a % b
+    if r == 0:
+        c = a / b
+        print("Result: " + str(c))
+    else:
+        c = a // b
+        print("Result: " + str(c) + " remainder of the division: " + str(r))
+
 input()
