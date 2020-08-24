@@ -9,23 +9,19 @@ init()
 
 def first_number():
     x1 = input("Enter first number: ")
-    condition1 = x1.isdigit()
-    condition2 = x1 != "+" or x1 != "-" or x1 != "*" or x1 != "/"
-    while not condition1 and condition2:
+    condition = x1.isdigit() and not x1.isspace() and (x1 != "+" or x1 != "-" or x1 != "*" or x1 != "/")
+    while not condition:
         x1 = input("Please, enter a number: ")
-        condition1 = x1.isdigit()
-        condition2 = x1 != "+" or x1 != "-" or x1 != "*" or x1 != "/"
+        condition = x1.isdigit() and not x1.isspace() and (x1 != "+" or x1 != "-" or x1 != "*" or x1 != "/")
     return float(x1)
 
 
 def second_number():
     x2 = input("Enter second number: ")
-    condition1 = x2.isdigit()
-    condition2 = x2 != "+" or x2 != "-" or x2 != "*" or x2 != "/"
-    while not condition1 and condition2:
-        x1 = input("Please, enter a number: ")
-        condition1 = x2.isdigit()
-        condition2 = x2 != "+" or x2 != "-" or x2 != "*" or x2 != "/"
+    condition = x2.isdigit() and not x2.isspace() and (x2 != "+" or x2 != "-" or x2 != "*" or x2 != "/")
+    while not condition:
+        x2 = input("Please, enter a number: ")
+        condition = x2.isdigit() and not x2.isspace() and (x2 != "+" or x2 != "-" or x2 != "*" or x2 != "/")
     return float(x2)
 
 
